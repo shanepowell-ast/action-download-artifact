@@ -82,6 +82,7 @@ async function main() {
 
         if (!runID) {
             // Note that the runs are returned in most recent first order.
+	    core.info(`Attempting to fetch list of workflow runs`)
             for await (const runs of client.paginate.iterator(client.actions.listWorkflowRuns, {
                 owner: owner,
                 repo: repo,
